@@ -28,9 +28,10 @@ Your puzzle answer was 53194.
 with open('adventofcode/day1/file1.txt','r') as text:
     answer=0
     for line in text:
-        first_num = None
-        last_num = None
+        first_num = 7
+        last_num = 8
         current_word = None
+
         for character in line:
             if character == '\n':
                 break

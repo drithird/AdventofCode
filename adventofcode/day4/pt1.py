@@ -45,7 +45,8 @@ import re
 import math
 lottery_ticket ={}
 total_points = 0
-number_pattern = r'\d{1,2}'
+count = 0
+number_pattern = r'\d{1,3}'
 with open("adventofcode/day4/file.txt", 'r') as file:
     for line in file:
         matches = re.findall(number_pattern, line)
@@ -55,9 +56,12 @@ with open("adventofcode/day4/file.txt", 'r') as file:
         wins = [guess for guess in guesses if guess in winning_numbers]
         wins = remove_duplicates(wins)
         lottery_ticket[game] = [len(wins),wins]
-        print(lottery_ticket)
-        #print(game,winning_numbers,guesses,wins)
-        
+        print(f"Current Game: {game}")
+        print(f"Correct Numbers are:{len(wins)}, Winning Numbers are: {wins}")
+        print(f"Correct Numbers: {winning_numbers}, Guesses: {guesses}")
+        count += 1
+        #if count == 2:
+        #    break
 for key in lottery_ticket:
     points = 0
     correct_numbers = lottery_ticket[key][0]
@@ -66,6 +70,5 @@ for key in lottery_ticket:
     elif correct_numbers > 1:
         points = math.pow(2,correct_numbers-1)
     total_points += points
-
 print(int(total_points))
 

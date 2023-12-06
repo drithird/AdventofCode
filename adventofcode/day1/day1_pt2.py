@@ -17,6 +17,7 @@ What is the sum of all of the calibration values?
 
 Your puzzle answer was 54249.
 """
+'zoneight234'
 def determine_word(word: str,character: str):
     test_word = word+character
     length = len(test_word)
